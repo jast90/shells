@@ -16,7 +16,8 @@ sudo tar -zxvf /opt/software/cm/cloudera-manager-el6-cm5.16.2_x86_64.tar.gz -C /
 # 拷贝驱动到/usr/share/java
 sudo unzip /opt/software/mysql/mysql-connector-java-5.1.48.zip -d /opt/software
 sudo mkdir /usr/share/java
-sudo cp /opt/software/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48-bin.jar /usr/share/java
+# 注意 /usr/share/java/mysql-connector-java.jar
+sudo cp /opt/software/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48-bin.jar /usr/share/java/mysql-connector-java.jar
 
 
 # 创建cm库
