@@ -21,6 +21,12 @@ sudo rpm -ivh MySQL-client**.rpm
 # 启动mysql
 sudo service mysql start
 
-# 修改mysqlm密码及权限
+# 修改mysql密码及权限
+# 打印默认密码
+# sudo awk -F": " '{print $2}' /root/.mysql_secret
 
-# sudo awk -F": " '{print $2}' /root/.mysql_secret|xargs mysqladmin -uroot -p{} password "123456"
+# 登入mysql
+# mysql -uroot -p默认密码
+
+# 执行脚本
+# source ./updateUser.sql;
