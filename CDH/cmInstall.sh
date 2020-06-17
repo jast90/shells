@@ -21,6 +21,7 @@ sudo cp /opt/software/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48-bi
 
 
 # 创建cm库
+# 遇到java.sql.SQLException: Access denied for user 'scm'@'localhost' (using password: YES) 问题。解决：删除cm数据库（drop database cm），scm用户(delete user where User='scm';)
 sudo /opt/cm-5.16.2/share/cmf/schema/scm_prepare_database.sh mysql cm -h$1 -uroot -p123456 --scm-host $2 scm scm scm
 
 # 修改agent config

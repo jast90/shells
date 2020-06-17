@@ -4,7 +4,9 @@
 
 ## GCP SSH免密登入配置
 
-`bash gcp/prepare.sh`
+```shell
+bash gcp/prepare.sh
+```
 
 ## CDH 安装
 
@@ -14,15 +16,21 @@
 
 #### JDK
 
-`bash jdk/jdkDownloader.sh`
+```shell
+bash jdk/jdkDownloader.sh
+```
 
 #### MySQL
 
-`bash mysql/mysqlDownloader.sh`
+```shell
+bash mysql/mysqlDownloader.sh
+```
 
 #### CDH
 
-`bash CDH/cdhDownloader.sh`
+```shell
+bash CDH/cdhDownloader.sh
+```
 
 ### 安装
 
@@ -30,12 +38,30 @@
 
 #### 安装JDK
 
-`bash jdk/jdkInstall.sh`
+```shell
+bash jdk/jdkInstall.sh
+```
+
+注意：
+
+- jdk要安装在`/usr/java/目录下
 
 #### 安装MySQL
 
-`bash mysql/mysqlInstall.sh`
+```shell
+bash mysql/mysqlInstall.sh
+```
+
+注意：
+
+- MySQL Java 驱动要复制到`/usr/share/java`且名称为`mysql-connector-java.jar`
 
 #### 安装CM
 
-`bash CDH/cmInstall.sh`
+```shell
+bash CDH/cmInstall.sh
+```
+
+注意：
+
+- 创建 脚本`cm`数据库及用户时遇到`java.sql.SQLException: Access denied for user 'scm'@'localhost' (using password: YES)` 问题。解决：删除cm数据库（drop database cm），scm用户(delete user where User='scm';)
