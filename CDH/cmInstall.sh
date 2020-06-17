@@ -11,10 +11,10 @@ fi
 mysql -uroot -p123456 <./cdh-db.sql;
 
 # 解压cloudera-manager到/opt
-sudo tar -zxvf /opt/software/cloudera-manager-el6-cm5.16.2_x86_64.tar.gz -C /opt
+sudo tar -zxvf /opt/software/cm/cloudera-manager-el6-cm5.16.2_x86_64.tar.gz -C /opt
 
 # 拷贝驱动到/usr/share/java
-sudo tar -xvf /opt/sofware/mysql-connector-java-5.1.48.zip -C /opt/software
+sudo tar -xvf /opt/sofware/mysql/mysql-connector-java-5.1.48.zip -C /opt/software
 cp /opt/software/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48-bin.jar /usr/share/java
 
 
