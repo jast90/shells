@@ -1,8 +1,10 @@
+#!/bin/bash
+
 # 创建数据库
 
 pcount=$#
 if((pcount==0)); then
-echo "cm-auto-config.sh Usage: cm-auto-config.sh mysqlHost scmHost"
+echo "Usage: cmInstall.sh mysqlHost scmHost"
 exit;
 fi
 
