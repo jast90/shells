@@ -20,9 +20,10 @@ sudo cp /opt/software/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48-bi
 
 
 # 创建cm库
-bash /opt/cm-5.16.2/share/cmf/schema/scm_prepare_database.sh mysql cm -h$1 -uroot -p123456 --scm-host $2 scm scm scm
+sudo /opt/cm-5.16.2/share/cmf/schema/scm_prepare_database.sh mysql cm -h$1 -uroot -p123456 --scm-host $2 scm scm scm
 
 # 修改agent config
+# sed 中使用$1 $n变量
 sudo sed -i "s/server_host=localhost/server_host=$2/" /opt/cm-5.16.2/etc/cloudera-scm-agent/config.ini
 
 # 拷贝下载文件
