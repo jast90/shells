@@ -1,6 +1,6 @@
 # shells
 
-一点一点写shell工具
+shell工具
 
 ## 应用
 
