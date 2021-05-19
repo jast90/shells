@@ -3,4 +3,4 @@ downloadURL=https://mirrors.tuna.tsinghua.edu.cn/apache/rocketmq/4.8.0/rocketmq-
 
 mkdir /opt/software
 cd /opt/software
-wget downloadURL
+wget $downloadURL

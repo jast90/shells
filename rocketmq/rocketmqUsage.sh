@@ -34,12 +34,10 @@ case "$p1" in
 "start")
     startNameServer
     startBroker
-done
 ;;
 "stop")
     shutdownBroker
     shutdownNameServer
-done
 ;;
 esac
 
