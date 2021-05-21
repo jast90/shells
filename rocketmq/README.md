@@ -9,3 +9,10 @@
 
 - [架构](https://rocketmq.apache.org/docs/rmq-arc/)
 - [部署 & broker.conf 配置](https://rocketmq.apache.org/docs/rmq-deployment/)
+
+
+## web管理工具
+
+1. https://github.com/apache/rocketmq-externals/releases -> rocketmq-console-1.0.0 下载
+2. 修改`application.properties`中的`rocketmq.config.namesrvAddr=ip:9876`
+3. maven 编译
