@@ -2,13 +2,13 @@
 # Start Name Server
 function startNameServer(){
     echo ----------start rocketmq name server----------
-    nohub sh /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqnamesrc &
+    nohup sh /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqnamesrv &
 }
 
 # Start Broker
 function startBroker(){
     echo ----------start rocketmq broker----------
-    nohub sh /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqbroker &
+    nohup sh /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqbroker -c /opt/module/rocketmq-all-4.8.0-bin-release/conf/broker.conf &
 }
 
 # shutdown broker
