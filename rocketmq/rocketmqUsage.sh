@@ -8,7 +8,7 @@ function startNameServer(){
 # Start Broker
 function startBroker(){
     echo ----------start rocketmq broker----------
-    nohup sh /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqbroker -c /opt/module/rocketmq-all-4.8.0-bin-release/conf/broker.conf &
+    nohup sh /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqbroker -c /opt/module/rocketmq-all-4.8.0-bin-release/conf/broker.conf -n 127.0.0.1:9876 &
 }
 
 # shutdown broker
@@ -21,6 +21,22 @@ function shutdownNameServer(){
     echo ----------shutdown rocketmq name server----------
     sh /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqshutdown namesrv
 }
+
+# 查看集群情况
+function clusterStatus(){
+    /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqadmin clusterList -n 127.0.0.1:9876
+}
+
+# 查看 broker 状态
+function brokerStatus(){
+    /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqadmin brokerStatus -n 127.0.0.1:9876 -b 127.0.0.1:10911
+}
+
+# 查看 topic 列表
+function topicList(){
+    /opt/module/rocketmq-all-4.8.0-bin-release/bin/mqadmin topicList -n 127.0.0.1:9876
+}
+
 
 # 获取输入参数个数，没有参数，直接退出
 pc=$#
@@ -38,6 +54,15 @@ case "$p1" in
 "stop")
     shutdownBroker
     shutdownNameServer
+;;
+"clusterStatus")
+    clusterStatus
+;;
+"brokerStatus")
+    brokerStatus
+;;
+"topicList")
+    topicList
 ;;
 esac
 
