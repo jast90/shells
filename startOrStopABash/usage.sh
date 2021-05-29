@@ -1,32 +1,38 @@
 #!/bin/bash
-app="error-bash"
 
 #后台启动bash：将输出打印到日志文件，生成pid文件（关键点 nohup &; 2>&1）
 function start(){
     
-    if [ -f "$app.pid" ];then
-        echo "$app areadly start"
-    else 
-        if [ -f $1 ];then 
-            echo "start $app"
-            nohup sh $1 > log.txt 2>&1 &
-            printf '%d' $! > $app.pid
+    if(($#==2));then
+        if [ -f "$1.pid" ];then
+            echo "$1 areadly start"
         else 
-            echo "$1 not exit"
+            if [ -f $2 ];then 
+                echo "start $1"
+                nohup sh $2 > log.txt 2>&1 &
+                printf '%d' $! > $1.pid
+            else 
+                echo "$2 not exit"
+            fi
         fi
+    else
+        echo "usage: sh usage.sh start appname bashFileName"
     fi
 }
 
 #根据pid停止进程
 function stop(){
-    echo "$app.pid"
-    if [ -f "$app.pid" ];then
-        kill - 9 `cat $app.pid`
-        rm -rf $app.pid
-        echo "$app stop success"
-    else 
-        echo "$app areadly stop"
+    if(($#==1));then
+        if [ -f "$1.pid" ];then
+            kill - 9 `cat $1.pid`
+            rm -rf $1.pid
+            echo "$1 stop success"
+        else 
+            echo "$1 areadly stop"
+        fi
+    else
+        echo "usage: sh usage.sh stop appname"
     fi
 }
 
-$1 $2
+$1 $2 $3
